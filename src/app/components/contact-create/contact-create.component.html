@@ -1,14 +1,14 @@
 <div class="row justify-content-center">
-  <div class="col-md-4 register-contact">
+  <div class="col-6 register-contact">
     <!-- form card register -->
     <div class="card-body">
       <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="inputName">Name</label>
+          <label for="inputName">Nome</label>
           <input class="form-control" type="text" formControlName="name">
           <!-- error -->
           <div class="invalid-feedback" *ngIf="submitted && myForm.name.errors?.required">
-            Name is required.
+            Nome é obrigatório.
           </div>
         </div>
 
@@ -17,10 +17,10 @@
           <input class="form-control" type="text" formControlName="email">
           <!-- error -->
           <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.required">
-            Enter your email.
+           Insira o email.
           </div>
           <div class="invalid-feedback" *ngIf="submitted && myForm.email.errors?.pattern">
-            Enter valid email.
+              Insira um email valido.
           </div>
         </div>
 
@@ -40,7 +40,7 @@
 
         <div class="form-group">
           <label for="inputVerify4">Whatsapp</label>
-          <input class="form-control" type="text" formControlName="whatsappNumber">
+          <input class="form-control" type="text" maxlength="13" formControlName="whatsappNumber">
           <!-- error -->
           <div class="invalid-feedback" *ngIf="submitted && myForm.whatsappNumber.errors?.required">
             Insira um numero valido.
@@ -53,7 +53,7 @@
 
         <div class="form-group">
           <label for="inputVerify3">Telefone</label>
-          <input class="form-control" type="text" formControlName="phoneNumber">
+          <input class="form-control" type="text" maxlength="13" formControlName="phoneNumber">
           <!-- error -->
           <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.required">
               Insira um numero valido.

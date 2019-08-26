@@ -10,6 +10,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 })
 export class BracketsBalanceComponent implements OnInit {
   StringBrackets = '';
+  color = "";
   submitted = false;
   bracketsForm: FormGroup;
   constructor(
@@ -52,15 +53,24 @@ export class BracketsBalanceComponent implements OnInit {
       '{': '}',
     }
     for (let i = 0; i < text.length; i++) {
-      if (text[i] === '(' || text[i] === '{' || text[i] === '[' ) {
+      if (text[i] === '(' || text[i] === '{' || text[i] === '[') {
         store.push(text[i]);
       }
       else {
         let list = store.pop();
-        if (text[i] !== key[list]) { return text + ' is not valid'; }
+        if (text[i] !== key[list]) {
+          this.color = "red";
+
+          return text + ' is not valid';
+        }
       }
     }
-    if(store.length !== 0){return text + ' is not valid';}
+    if (store.length !== 0) {
+      this.color = "red";
+
+      return text + ' is not valid';
+    }
+    this.color = "green"
     return text + ' is valid';
   }
 
